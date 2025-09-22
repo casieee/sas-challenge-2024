@@ -26,3 +26,45 @@ The dataset includes the following fields:
 | **recent_credit**   | Number of recent credit lines                                              |
 | **credit_number**   | Total number of credit lines                                               |
 | **ratio**           | Debt-to-income ratio        
+
+# Exploratory Data Analysis (EDA)
+
+- **Dataset**: 5,198 observations with 14 variables.  
+- **Target variable**: `default` (binary classification).  
+- **Variable types**:  
+  - Numerical: `loan_amount`, `mortgage_amount`, `property_value`, `occupation_length`, `derogatory_reports`, `late_payments`, `oldest_credit_line`, `recent_credit`, `credit_number`, `ratio`.  
+  - Categorical: `loan_reason`, `occupation`.  
+
+**Key steps:**
+- Inspected dataset structure using `df.info()` and `df.columns`.  
+- Visualized target distribution (`countplot` for `default`).  
+- Checked missing values and feature distributions.
+
+# Feature Engineering
+
+- **Categorical variables**:  
+  - Encoded with **Label Encoding** and **One-Hot Encoding**.  
+- **Numerical variables**:  
+  - Standardized using **StandardScaler**.  
+- **Missing values**:  
+  - Imputed with appropriate strategies to ensure model compatibility.
+
+# Model Building & Execution
+- **Algorithm**: Support Vector Classifier (SVC) with RBF kernel.  
+- **Hyperparameter tuning**: GridSearchCV with:  
+  - `C = [1, 5, 10]`  
+  - `gamma = [1, 0.1, 0.01, 0.001, 0.0001]`  
+- **Evaluation metrics**:  
+  - `accuracy_score`  
+  - `classification_report`  
+  - Cross-validation for robustness  
+
+**Process:**
+1. Split data into training and testing sets.  
+2. Performed hyperparameter tuning with GridSearchCV.  
+3. Selected the best parameters and retrained the model.  
+4. Evaluated performance on test data.
+
+# Results
+- Best parameters were successfully identified through grid search.  
+- Final model achieved strong predictive performance (see classification report in notebook for details).  
