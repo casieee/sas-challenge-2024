@@ -67,4 +67,5 @@ The dataset includes the following fields:
 
 # Results
 - Best parameters were successfully identified through grid search.  
-- Final model achieved strong predictive performance (see classification report in notebook for details).  
+- Final model achieved strong predictive performance (see classification report in the [notebook](sas-challenge.ipynb) for details).
+
